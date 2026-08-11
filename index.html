@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>(blank) shoe shop!</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var colorWrapper = document.getElementById('color-wrapper');
+            if (!colorWrapper) return;
+            var designs = document.querySelectorAll('.design');
+            function pauseAnimations() {
+                designs.forEach(function (el) { el.style.animationPlayState = 'paused'; });
+            }
+            function resumeAnimations() {
+                designs.forEach(function (el) { el.style.animationPlayState = 'running'; });
+            }
+            colorWrapper.addEventListener('mouseenter', pauseAnimations);
+            colorWrapper.addEventListener('mouseleave', resumeAnimations);
+            colorWrapper.addEventListener('focusin', pauseAnimations);
+            colorWrapper.addEventListener('focusout', resumeAnimations);
+            colorWrapper.addEventListener('touchstart', pauseAnimations);
+            colorWrapper.addEventListener('touchend', resumeAnimations);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var menuBtn = document.getElementById('menu-btn');
+            var mobileMenu = document.getElementById('mobile-menu');
+            var menuLocked = false;
+            var closeTimer = null;
+
+            function openMenu(locked) {
+                clearTimeout(closeTimer);
+                mobileMenu.classList.add('open');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                if (locked) menuLocked = true;
+            }
+            function closeMenu() {
+                clearTimeout(closeTimer);
+                mobileMenu.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuLocked = false;
+            }
+            function scheduleHoverClose() {
+                if (menuLocked) return;
+                closeTimer = setTimeout(closeMenu, 150);
+            }
+
+            menuBtn.addEventListener('click', function () {
+                if (menuLocked) closeMenu();
+                else openMenu(true);
+            });
+            menuBtn.addEventListener('mouseenter', function () {
+                if (!menuLocked) openMenu(false);
+                else clearTimeout(closeTimer);
+            });
+            menuBtn.addEventListener('mouseleave', scheduleHoverClose);
+            mobileMenu.addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
+            mobileMenu.addEventListener('mouseleave', scheduleHoverClose);
+            menuBtn.addEventListener('focusin', function () {
+                if (!menuLocked) openMenu(false);
+            });
+            menuBtn.addEventListener('focusout', scheduleHoverClose);
+            document.addEventListener('click', function (e) {
+                if (mobileMenu.classList.contains('open') &&
+                    !mobileMenu.contains(e.target) &&
+                    !menuBtn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="bar">
+        <ul id="logo-bar">
+            <li>
+                <div id="logo"></div>
+            </li>
+        </ul>
+        <ul id="nav-bar" style="display:flex, none; justify-content: center; align-items: center;">
+            <li><a class="barbtn" id="main" href="index.html">Home</a></li>
+            <li><a href="#design" class="barbtn" id="design-btn">Our Designs</a></li>
+            <li><a class="barbtn" id="about" href="#about-us">About Us</a></li>
+            <li><a class="barbtn" id="contact" href="#contact-us">Contact Us</a></li>
+        </ul>
+        <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"></button>
+    </div>
+    <div id="mobile-menu">
+        <a class="p-barbtn" href="index.html">Home</a>
+        <a class="p-barbtn" href="#design">Our Designs</a>
+        <a class="p-barbtn" href="#about-us">About Us</a>
+        <a class="p-barbtn" href="#contact-us">Contact Us</a>
+    </div>
+    <br>
+    <div id="photo-wrapper">
+        <div id="photo-slider"></div>
+    </div>
+    <br>
+    <div id="design-title-wrapper" style="display: flex; justify-content: center; align-items: center; width: 100%; height: auto;">
+        <h1 class="main-title" id="design-title">Our Designs</h1>
+    </div>
+    <div id="design">
+        <div id="design1" class="design" style="background-image: url(shoes1.png); top: 0; left: 0; animation: designAnimation1 50s infinite;"></div>
+        <div id="design2" class="design" style="background-image: url(shoes2.png); top: 0; right: 0; animation: designAnimation2 50s infinite;"></div>
+        <div id="design3" class="design" style="background-image: url(shoes3.png);bottom: 0; left: 0; animation: designAnimation3 50s infinite;"></div>
+        <div id="design4" class="design" style="background-image: url(shoes4.png); bottom: 0; right: 0; animation: designAnimation4 50s infinite;"></div>
+        <div id="color-wrapper"></div>
+    </div>
+    <div class="main" id="about-us">
+        <div id="about-box-1"><h1 class="main-title">About Us</h1></div>
+        <div id="about-box-2">
+            <div id="about-box-2-inner"></div>
+        </div>
+        <div id="about-box-3">
+            <div id="about-box-3-inner"></div>
+        </div>
+        <div id="about-box-4">
+            <p>we at (blank) shoes blah blah blah, blah blah blah.</p>
+        </div>
+    </div>
+    <div class="main" id="contact-us">
+        <h1 class="main-title">Contact Us</h1>
+        <p>Email: info@shoeshop.com</p>
+        <p>Phone: 123-456-7890</p>
+    </div>
+</body>
+</html>
