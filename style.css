@@ -1,0 +1,505 @@
+body{
+    background: lightgray;
+    font-family: 'Poppins', sans-serif;
+    
+}
+html {
+    scroll-behavior: smooth;
+}
+.main {
+    margin: 0 auto;
+    height: 80vh;
+    width: 80vw;
+    padding: 10%;
+}
+#bar {
+    top: 0;
+    position: fixed;
+    height: 10%;
+    width: 100vw;
+    right: 0;
+    background: linear-gradient(to right, #32965b, black, #32965b);
+    z-index: 100000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+@keyframes barhover{
+    0% {background: linear-gradient(to right, #32965b 0%, black 50%, black 50%, #32965b 100%);}
+    100% {background: linear-gradient(to right, #32965b 0%, black 25%, black 75%, #32965b 100%);}
+}
+.barbtn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: #32965b;
+    height: 2.5vh;
+    width: 5vw;
+    padding: 1vw;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    transition:all 0.5s;
+    font-size: 1.5vh;
+}
+#logo-bar{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 0.5vw; /* spacing between buttons instead of margin */
+    margin: 0;
+    padding: 0;
+    width: 25%;
+}
+#nav-bar{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 2.5vw; /* spacing between buttons instead of margin */
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+.barbtn:hover {
+    transform: scale(1.25);
+    background-color: #32965b;
+    color: black; 
+    border: transparent;
+}
+#menu-btn:hover{
+    background-image: url(logo-hover.png) ;
+}
+@keyframes hoverAnimation {
+    0% {background-color: gray; }
+    100% { height: 3.25vh; width: 5.75vw; background-color: #01461e; }
+}
+#logo{
+     background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 8vw;
+    min-width: 60px;
+    height: 6vh;
+    background-image: url(logo.png);
+}
+#menu-btn {
+    display: none;
+    background-image: url(menu.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    width: 7vw;
+    min-width: 40px;
+    height: 5vh;
+    cursor: pointer;
+    margin-left: auto;
+    right: 5%;
+}
+#mobile-menu {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    background: black;
+    flex-direction: column;
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+}
+#mobile-menu a {
+    padding: 3vh 0;
+    text-align: center;
+    text-decoration: none;
+}
+.p-barbtn{
+    color: #32965b;
+    width: 100%;
+    height: 25%;
+}
+.p-barbtn:hover{
+    background-color: #32965b;
+    color: black;
+}
+#mainh1{
+    color: black;
+    font-size: 2.5vh;
+}
+#photo-slider {
+    margin: 0 auto;
+    position: relative;
+    height: 75vh;
+    width: 75vw;
+    background-image: url('1000.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 5%;
+    animation: mainScreenAnimation 25s infinite;
+}
+#photo-wrapper{
+    border-radius: 30%;
+    margin-left: 5%;
+    margin-top: 7%;
+    height: 82vh;
+    width: 90vw;
+    background: radial-gradient(ellipse farthest-corner at center, black 0%, lightgray 100%);
+}
+@keyframes mainScreenAnimation {
+    0% { opacity: 0; }
+    5% { opacity: 1 }
+    20%{background-image: url('1000.png');}
+    25%{background-image: url('shoes1.png');}
+    40%{background-image: url('shoes1.png');}
+    45%{background-image: url('shoes2.png');}
+    60%{background-image: url('shoes2.png');}
+    65%{background-image: url('shoes3.png');}
+    80%{background-image: url('shoes3.png');}
+    85%{background-image: url('shoes4.png');}
+    100%{background-image: url('shoes4.png');}
+}
+#design-title{
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: min(8em, 5vw, 10vw);
+    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    margin-left: auto;
+    margin-right: auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+#design{
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 7%;
+    height: 85vh;
+    width: 85vw;
+}
+.design{
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 42vh;
+    width: 42vw;
+    border-radius: 10%;
+    border: solid 1px;
+    transition: all 1s;
+}
+@keyframes designAnimation1{
+    0%{ width: 70vw; height: 70vh; background: url(shoes1.png) center;}
+    24% { transform: translate(0,0); width: 70vw; height: 70vh; background: url(shoes1.png) center;}
+    25% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+    49% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+    50% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: lightgray; }
+    74% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: lightgray;}
+    75% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    99% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    100%{ width: 70vw; height: 70vh;}
+
+}
+@keyframes designAnimation2{
+    0%{ width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    24% { transform: translate(0,0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    25%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
+    49%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
+    50%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    74%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}   
+    75%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: lightgray;}
+    99%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: lightgray;}
+    100%{ width: 14vw; height: 70vh;}
+}
+@keyframes designAnimation3{
+    0%{width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    24% { transform: translate(0,0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: lightgray;}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: lightgray;}
+    50%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    74%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    75%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
+    99%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
+    100%{width: 70vw; height: 14vh;}
+}
+@keyframes designAnimation4{
+    0%{ width: 14vw; height: 14vh; background: lightgray;}
+    24% { transform: translate(0,0); width: 14vw; height: 14vh; background: lightgray;}
+    25%{ transform: translate(0, -15vh);width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    49%{ transform: translate(0, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    50%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
+    74%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    100%{ width: 14vw; height: 14vh;}
+}
+#color-wrapper{
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+}
+#color-wrapper:hover{
+    background-color: rgba(211, 211, 211, 0.1);
+}
+#about-us{
+    padding: 0;
+    position: relative;
+    margin: 0% auto;
+    margin-top: 7%;
+    height: 85vh;
+    width: 85vw;
+}
+.main-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3em;
+     background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+#about-box-1{
+    font-size: min(2vw, 1.5em);
+    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback for browsers that don't support the above */
+    display: flex;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 30vh;
+    width: 30vw;
+    top: 0;
+    left: 0;
+}
+#about-box-2{
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    height: 50vh;
+    width: 50vw;
+    top: 0;
+    right: 0;
+    background: radial-gradient(circle at bottom left, #32965b 0%, rgba(0,0,0,0) 95%);
+    border-radius: 40%;
+    transition: background-color 1s; 
+    animation: box 1s;
+}
+@keyframes box{
+    0%{scale: 0.1;}
+    100%{scale: 1;}
+
+}
+#about-box-2-inner{
+    border-radius: 40%;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    height: 40vh;
+    width: 40vw;
+    bottom: 0;
+    left: 0;
+    background-image: url('shoes1.png');
+    transition: height 1s, width 1s, border-radius 1s;
+    animation: box 1s;
+}
+#about-box-2:hover #about-box-2-inner{
+    height: 50vh;
+    width: 50vw;
+    border-radius: 40%;
+}
+#about-box-2:hover{
+    background-color: #32965b;
+}
+
+#about-box-3{
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 60vh;
+    width: 40vw;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle at top right, #32965b 0%, rgba(0,0,0,0) 95%);
+    border-radius: 30%;
+    transition: background-color 1s;
+    animation: box 1s;
+}
+#about-box-3-inner{
+    border-radius: 30%;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    height: 50vh;
+    width: 30vw;
+    top: 0;
+    right: 0;
+    background-image: url('shoes2.png');
+    transition: height 1s, width 1s, border-radius 1s;
+    animation: box 1s;
+}
+#about-box-3:hover{
+    background-color: #32965b;
+}
+#about-box-3:hover #about-box-3-inner{
+    height: 60vh;
+    width: 40vw;
+    border-radius: 30%;
+}
+#about-box-4{
+    font-size: 2.5vw;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    height: 30vh;
+    width: 40vw;
+    bottom: 0;
+    right: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback for browsers that don't support the above */
+    display: flex;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background: linear-gradient(to right, #32965b 0%, black, #32965b 100%);
+    background-clip: text;
+
+}
+#contact-us{
+    font-size: 1.5em;
+    padding: 0;
+    position: relative;
+    margin: 0% auto;
+    margin-top: 7%;
+    height: 85vh;
+    width: 85vw;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback for browsers that don't support the above */
+    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background-clip: text;
+}
+@media (orientation: portrait) {
+    /* bigger nav buttons */
+    .barbtn {
+        width: 20vw;
+        height: 5vh;
+        font-size: 2.2vh;
+        padding: 3vw 1vw;
+    }
+    #nav-bar {
+        gap: 3vw;
+    }
+
+    /* smaller main header */
+    #mainh1 {
+        font-size: 200%;
+    }
+
+    #about-us{
+        height: 42.5dvh;
+    }
+    #about-box-1{
+        height: 15dvh;
+    }
+     #about-box-2{
+        height: 25dvh;
+    }
+     #about-box-2-inner{
+        height: 20dvh;
+    }
+    #about-box-2:hover #about-box-2-inner{
+        height: 25dvh;
+    }
+     #about-box-3-inner{
+        height: 25dvh;
+    }
+    #about-box-3:hover #about-box-3-inner{
+        height: 30dvh;
+    }
+     #about-box-3{
+        height: 30dvh;
+    }
+     #about-box-4{
+        height: 15dvh;
+    }
+ 
+    #design{
+        height: 42.5dvh;
+    }
+    #photo-wrapper{
+        height: 41dvh;
+    }
+    #photo-slider{
+        height: 37.5dvh;
+    }
+@keyframes designAnimation1{
+    0%{ width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
+    24% { transform: translate(0,0); width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
+    25% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+    49% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+    50% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: lightgray; }
+    74% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: lightgray; }
+    75% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
+    99% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
+    100%{ width: 70vw; height: 35vh; background: url(shoes1.png) center; }
+}
+@keyframes designAnimation2{
+    0%{ width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    24% { transform: translate(0,0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    25%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
+    49%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
+    50%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    74%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    75%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: lightgray;}
+    99%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: lightgray;}
+    100%{ width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
+}
+@keyframes designAnimation3{
+    0%{width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    24% { transform: translate(0,0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: lightgray;}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: lightgray;}
+    50%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    74%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    75%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
+    99%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
+    100%{width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+}
+@keyframes designAnimation4{
+    0%{ width: 14vw; height: 7vh; background: lightgray;}
+    24% { transform: translate(0,0); width: 14vw; height: 7vh; background: lightgray;}
+    25%{ transform: translate(0, -7.5vh);width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    49%{ transform: translate(0, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    50%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
+    74%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    100%{ width: 14vw; height: 7vh; background: lightgray; }
+}
+    #nav-bar { display: none; }
+    #menu-btn { display: block; position: fixed; }
+    #mobile-menu.open { display: flex; }
+    .main-title{
+       font-size: min(5vw, 3em);
+    }
+}
