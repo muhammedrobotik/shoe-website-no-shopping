@@ -1,7 +1,11 @@
 body{
-    background: lightgray;
+    background: hsl(0, 0%, 5%);
     font-family: 'Poppins', sans-serif;
     
+}
+:root{
+    --heavy-radius: 5vh;
+    --light-radius: 100vh;
 }
 html {
     scroll-behavior: smooth;
@@ -18,25 +22,21 @@ html {
     height: 10%;
     width: 100vw;
     right: 0;
-    background: linear-gradient(to right, #32965b, black, #32965b);
+    background: hsl(0, 0%, 10%);
     z-index: 100000;
     overflow: hidden;
     display: flex;
     align-items: center;
 }
-@keyframes barhover{
-    0% {background: linear-gradient(to right, #32965b 0%, black 50%, black 50%, #32965b 100%);}
-    100% {background: linear-gradient(to right, #32965b 0%, black 25%, black 75%, #32965b 100%);}
-}
 .barbtn {
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    color: #32965b;
+    color: hsl(145, 100%, 35%);
     height: 2.5vh;
     width: 5vw;
     padding: 1vw;
-    border-radius: 10px;
+    border-radius: var(--light-radius);
     border: 1px solid lightgray;
     transition:all 0.5s;
     font-size: 1.5vh;
@@ -65,7 +65,7 @@ html {
 }
 .barbtn:hover {
     transform: scale(1.25);
-    background-color: #32965b;
+    background-color: hsl(145, 100%, 35%);
     color: black; 
     border: transparent;
 }
@@ -106,7 +106,7 @@ html {
     top: 10%;
     left: 0;
     width: 100%;
-    background: black;
+    background: hsl(0, 0%, 10%);
     flex-direction: column;
     z-index: 99999;
     align-items: center;
@@ -118,12 +118,12 @@ html {
     text-decoration: none;
 }
 .p-barbtn{
-    color: #32965b;
+    color: hsl(145, 100%, 35%);
     width: 100%;
     height: 25%;
 }
 .p-barbtn:hover{
-    background-color: #32965b;
+    background-color: hsl(145, 100%, 35%);
     color: black;
 }
 #mainh1{
@@ -132,22 +132,30 @@ html {
 }
 #photo-slider {
     margin: 0 auto;
+    margin-top: 15vh;
     position: relative;
     height: 75vh;
     width: 75vw;
     background-image: url('1000.png');
     background-size: cover;
     background-position: center;
-    border-radius: 5%;
+    border-radius: var(--heavy-radius);
     animation: mainScreenAnimation 25s infinite;
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
 }
 #photo-wrapper{
-    border-radius: 30%;
-    margin-left: 5%;
-    margin-top: 7%;
-    height: 82vh;
-    width: 90vw;
-    background: radial-gradient(ellipse farthest-corner at center, black 0%, lightgray 100%);
+     position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top center, white 0%, transparent 70%);
+    pointer-events: none;
+}
+.shine{
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at top center, white 0%, transparent 40%);
+    pointer-events: none;
 }
 @keyframes mainScreenAnimation {
     0% { opacity: 0; }
@@ -162,25 +170,17 @@ html {
     85%{background-image: url('shoes4.png');}
     100%{background-image: url('shoes4.png');}
 }
-#design-title{
-    position: relative;
-    font-family: 'Poppins', sans-serif;
-    font-size: min(8em, 5vw, 10vw);
-    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
-    margin-left: auto;
-    margin-right: auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-}
 #design{
     display: flex;
     margin: 0 auto;
     position: relative;
     margin-top: 7%;
-    height: 85vh;
-    width: 85vw;
+    height: 90vh;
+    width: 90vw;
+    background: hsl(0, 0%, 20%);
+    border-radius: var(--heavy-radius);
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+
 }
 .design{
     background-position: center;
@@ -188,53 +188,53 @@ html {
     position: absolute;
     height: 42vh;
     width: 42vw;
-    border-radius: 10%;
+    border-radius: var(--light-radius);
     border: solid 1px;
     transition: all 1s;
 }
 @keyframes designAnimation1{
     0%{ width: 70vw; height: 70vh; background: url(shoes1.png) center;}
     24% { transform: translate(0,0); width: 70vw; height: 70vh; background: url(shoes1.png) center;}
-    25% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
-    49% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
-    50% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: lightgray; }
-    74% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: lightgray;}
-    75% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    99% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    25% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%); }
+    49% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%); }
+    50% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: #32965b; }
+    74% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: #32965b;}
+    75% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    99% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
     100%{ width: 70vw; height: 70vh;}
 
 }
 @keyframes designAnimation2{
-    0%{ width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    24% { transform: translate(0,0); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{ width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    24% { transform: translate(0,0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
     25%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
     49%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
-    50%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    74%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}   
-    75%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: lightgray;}
-    99%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: lightgray;}
+    50%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
+    74%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}   
+    75%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: #32965b;}
+    99%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: #32965b;}
     100%{ width: 14vw; height: 70vh;}
 }
 @keyframes designAnimation3{
-    0%{width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    24% { transform: translate(0,0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    25%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: lightgray;}
-    49%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: lightgray;}
-    50%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    74%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
+    24% { transform: translate(0,0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: #32965b;}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: #32965b;}
+    50%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    74%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
     75%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
     99%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
     100%{width: 70vw; height: 14vh;}
 }
 @keyframes designAnimation4{
-    0%{ width: 14vw; height: 14vh; background: lightgray;}
-    24% { transform: translate(0,0); width: 14vw; height: 14vh; background: lightgray;}
-    25%{ transform: translate(0, -15vh);width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    49%{ transform: translate(0, -15vh); width: 14vw; height: 70vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{ width: 14vw; height: 14vh; background: hsl(145, 100%, 35%);}
+    24% { transform: translate(0,0); width: 14vw; height: 14vh; background: hsl(145, 100%, 35%);}
+    25%{ transform: translate(0, -15vh);width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    49%{ transform: translate(0, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
     50%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
     74%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
-    75%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    99%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
     100%{ width: 14vw; height: 14vh;}
 }
 #color-wrapper{
@@ -254,19 +254,32 @@ html {
     margin-top: 7%;
     height: 85vh;
     width: 85vw;
+    border-radius:var(--heavy-radius) ;
+    background-color: hsl(0, 0%, 15%);
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+
 }
-.main-title {
+.heavy-text {
     font-family: 'Poppins', sans-serif;
     font-size: 3em;
-     background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background: linear-gradient(hsl(0, 0%, 70%) 0%, hsl(0, 0%, 100%) 50%, hsl(0, 0%, 70%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+    text-shadow: -0.25vh 0.25vw 15px hsl(0, 0%, 7%);
+}
+.light-text {
+     background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow: -0.1vh 0.1vw 15px hsl(0, 0%, 7%), -0.5vh 0.5vw 10px hsl(0, 0%, 15%);
 }
 #about-box-1{
     font-size: min(2vw, 1.5em);
-    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -292,10 +305,12 @@ html {
     width: 50vw;
     top: 0;
     right: 0;
-    background: radial-gradient(circle at bottom left, #32965b 0%, rgba(0,0,0,0) 95%);
+    background: radial-gradient(circle at bottom left, hsl(145, 100%, 35%) 0%, hsl(0, 0%, 10%) 95%);
     border-radius: 40%;
     transition: background-color 1s; 
     animation: box 1s;
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+
 }
 @keyframes box{
     0%{scale: 0.1;}
@@ -324,9 +339,8 @@ html {
     border-radius: 40%;
 }
 #about-box-2:hover{
-    background-color: #32965b;
+    background: hsl(145, 100%, 35%);
 }
-
 #about-box-3{
     background-position: center;
     background-size: cover;
@@ -335,10 +349,12 @@ html {
     width: 40vw;
     bottom: 0;
     left: 0;
-    background: radial-gradient(circle at top right, #32965b 0%, rgba(0,0,0,0) 95%);
+    background: radial-gradient(circle at top right, hsl(145, 100%, 35%) 0%, hsl(0, 0%, 10%) 95%);
     border-radius: 30%;
     transition: background-color 1s;
     animation: box 1s;
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%);
+
 }
 #about-box-3-inner{
     border-radius: 30%;
@@ -357,7 +373,7 @@ html {
     animation: box 1s;
 }
 #about-box-3:hover{
-    background-color: #32965b;
+    background: hsl(145, 100%, 35%);
 }
 #about-box-3:hover #about-box-3-inner{
     height: 60vh;
@@ -380,23 +396,34 @@ html {
     justify-content: center;
     background-position: center;
     background-size: cover;
-    background: linear-gradient(to right, #32965b 0%, black, #32965b 100%);
+    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
     background-clip: text;
 
 }
+#contact-wrapper{
+    position: relative;
+    background-color: hsl(0, 0%, 10%);
+    width: 85vw;
+    height: 35vh;
+    left: 7.5vw;
+    border-radius: var(--heavy-radius);
+    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+}
 #contact-us{
+    left: 5vw;
     font-size: 1.5em;
     padding: 0;
     position: relative;
     margin: 0% auto;
     margin-top: 7%;
-    height: 85vh;
+    height: 35vh;
     width: 85vw;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent; /* fallback for browsers that don't support the above */
-    background: linear-gradient(to right, #32965b 0%, black 50%, #32965b 100%);
+    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
     background-clip: text;
+    line-height: 1.4;
 }
 @media (orientation: portrait) {
     /* bigger nav buttons */
@@ -455,46 +482,46 @@ html {
 @keyframes designAnimation1{
     0%{ width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
     24% { transform: translate(0,0); width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
-    25% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
-    49% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
-    50% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: lightgray; }
-    74% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: lightgray; }
-    75% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
-    99% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
+    25% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
+    49% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
+    50% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: #32965b; }
+    74% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: #32965b; }
+    75% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
+    99% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
     100%{ width: 70vw; height: 35vh; background: url(shoes1.png) center; }
 }
 @keyframes designAnimation2{
-    0%{ width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    24% { transform: translate(0,0); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{ width: 14vw; height: 35vh; background: hsl(0, 0%, 15%);}
+    24% { transform: translate(0,0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%);}
     25%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
     49%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
-    50%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    74%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    75%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: lightgray;}
-    99%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: lightgray;}
-    100%{ width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%); }
+    50%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    74%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    75%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: #32965b;}
+    99%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: #32965b;}
+    100%{ width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
 }
 @keyframes designAnimation3{
-    0%{width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    24% { transform: translate(0,0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    25%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: lightgray;}
-    49%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: lightgray;}
+    0%{width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    24% { transform: translate(0,0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: #32965b;}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: #32965b;}
     50%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
     74%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
     75%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
     99%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
-    100%{width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%); }
+    100%{width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
 }
 @keyframes designAnimation4{
-    0%{ width: 14vw; height: 7vh; background: lightgray;}
-    24% { transform: translate(0,0); width: 14vw; height: 7vh; background: lightgray;}
+    0%{ width: 14vw; height: 7vh; background: #32965b;}
+    24% { transform: translate(0,0); width: 14vw; height: 7vh; background: #32965b;}
     25%{ transform: translate(0, -7.5vh);width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
     49%{ transform: translate(0, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
     50%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
     74%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
-    75%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    99%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: linear-gradient(to right, black 40%, lightgray 100%);}
-    100%{ width: 14vw; height: 7vh; background: lightgray; }
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
+    100%{ width: 14vw; height: 7vh; background: #32965b; }
 }
     #nav-bar { display: none; }
     #menu-btn { display: block; position: fixed; }
