@@ -1,11 +1,71 @@
 body{
-    background: hsl(0, 0%, 5%);
+    background: var(--n5);
     font-family: 'Poppins', sans-serif;
     
 }
 :root{
     --heavy-radius: 5vh;
     --light-radius: 100vh;
+
+    /* dark-mode base values — the site's original palette, untouched */
+    --n0-base: hsl(0, 0%, 0%);
+    --n5-base: hsl(0, 0%, 5%);
+    --n6-base: hsl(0, 0%, 6%);
+    --n7-base: hsl(0, 0%, 7%);
+    --n10-base: hsl(0, 0%, 10%);
+    --n15-base: hsl(0, 0%, 15%);
+    --n20-base: hsl(0, 0%, 20%);
+    --n40-base: hsl(0, 0%, 40%);
+    --n50-base: hsl(0, 0%, 50%);
+    --n70-base: hsl(0, 0%, 70%);
+    --n80-base: hsl(0, 0%, 80%);
+    --n83-base: hsl(0, 0%, 83%);
+    --n90-base: hsl(0, 0%, 90%);
+    --n100-base: hsl(0, 0%, 100%);
+    --accent-base: hsl(145, 100%, 35%);
+    --accent-alt-base: hsl(145, 50%, 39%);
+    --dark-green-base: hsl(145, 97%, 14%);
+
+    /* active theme — defaults to the dark-mode base, overridden below for light mode */
+    --n0: var(--n0-base);
+    --n5: var(--n5-base);
+    --n6: var(--n6-base);
+    --n7: var(--n7-base);
+    --n10: var(--n10-base);
+    --n15: var(--n15-base);
+    --n20: var(--n20-base);
+    --n40: var(--n40-base);
+    --n50: var(--n50-base);
+    --n70: var(--n70-base);
+    --n80: var(--n80-base);
+    --n83: var(--n83-base);
+    --n90: var(--n90-base);
+    --n100: var(--n100-base);
+    --accent: var(--accent-base);
+    --accent-alt: var(--accent-alt-base);
+    --dark-green: var(--dark-green-base);
+}
+@media (prefers-color-scheme: light) {
+    :root{
+        /* same hue/saturation, lightness subtracted from 100% — derived straight from the base colors above */
+        --n0: hsl(from var(--n0-base) h s calc(100 - l));
+        --n5: hsl(from var(--n5-base) h s calc(100 - l));
+        --n6: hsl(from var(--n6-base) h s calc(100 - l));
+        --n7: hsl(from var(--n7-base) h s calc(100 - l));
+        --n10: hsl(from var(--n10-base) h s calc(100 - l));
+        --n15: hsl(from var(--n15-base) h s calc(100 - l));
+        --n20: hsl(from var(--n20-base) h s calc(100 - l));
+        --n40: hsl(from var(--n40-base) h s calc(100 - l));
+        --n50: hsl(from var(--n50-base) h s calc(100 - l));
+        --n70: hsl(from var(--n70-base) h s calc(100 - l));
+        --n80: hsl(from var(--n80-base) h s calc(100 - l));
+        --n83: hsl(from var(--n83-base) h s calc(100 - l));
+        --n90: hsl(0, 0% , 95%);
+        --n100: hsl(from var(--n100-base) h s calc(100 - l));
+        --accent: hsl(145, 100%, 35%);
+        --accent-alt: hsl(145, 100%, 35%);
+        --dark-green: hsl(145, 100%, 35%);
+    }
 }
 html {
     scroll-behavior: smooth;
@@ -22,7 +82,7 @@ html {
     height: 10%;
     width: 100vw;
     right: 0;
-    background: hsl(0, 0%, 10%);
+    background: var(--n10);
     z-index: 100000;
     overflow: hidden;
     display: flex;
@@ -32,12 +92,12 @@ html {
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    color: hsl(145, 100%, 35%);
+    color: var(--accent);
     height: 2.5vh;
     width: 5vw;
     padding: 1vw;
     border-radius: var(--light-radius);
-    border: 1px solid lightgray;
+    border: 1px solid var(--n83);
     transition:all 0.5s;
     font-size: 1.5vh;
 }
@@ -65,16 +125,17 @@ html {
 }
 .barbtn:hover {
     transform: scale(1.25);
-    background-color: hsl(145, 100%, 35%);
-    color: black; 
+    background-color: var(--accent);
+    color: var(--n0); 
     border: transparent;
+    box-shadow: 0.25vh 0.25vw 5px var(--accent), -0.25vh -0.25vw 5px var(--accent), 0.25vh -0.25vw 5px var(--accent), -0.25vh 0.25vw 5px var(--accent);
 }
 #menu-btn:hover{
     background-image: url(logo-hover.png) ;
 }
 @keyframes hoverAnimation {
-    0% {background-color: gray; }
-    100% { height: 3.25vh; width: 5.75vw; background-color: #01461e; }
+    0% {background-color: var(--n50); }
+    100% { height: 3.25vh; width: 5.75vw; background-color: var(--dark-green); }
 }
 #logo{
      background-position: center;
@@ -106,7 +167,7 @@ html {
     top: 10%;
     left: 0;
     width: 100%;
-    background: hsl(0, 0%, 10%);
+    background: var(--n10);
     flex-direction: column;
     z-index: 99999;
     align-items: center;
@@ -118,16 +179,16 @@ html {
     text-decoration: none;
 }
 .p-barbtn{
-    color: hsl(145, 100%, 35%);
+    color: var(--accent);
     width: 100%;
     height: 25%;
 }
 .p-barbtn:hover{
-    background-color: hsl(145, 100%, 35%);
-    color: black;
+    background-color: var(--accent);
+    color: var(--n0);
 }
 #mainh1{
-    color: black;
+    color: var(--n0);
     font-size: 2.5vh;
 }
 #photo-slider {
@@ -141,12 +202,12 @@ html {
     background-position: center;
     border-radius: var(--heavy-radius);
     animation: mainScreenAnimation 25s infinite;
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+    box-shadow: -1vh 1vw 15px var(--n7), -2.4vh 2.5vw 10px var(--n15);
 }
 #photo-wrapper{
      position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top center, white 0%, transparent 70%);
+    background: radial-gradient(circle at top center, var(--n100) 0%, transparent 70%);
     pointer-events: none;
 }
 .shine{
@@ -154,8 +215,10 @@ html {
     inset: 0;
     z-index: 2;
     border-radius: inherit;
-    background: radial-gradient(ellipse at top center, white 0%, transparent 40%);
+    background: radial-gradient(ellipse at top center, var(--n90) 0%, transparent 40%-70%, var(--n6));
     pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 @keyframes mainScreenAnimation {
     0% { opacity: 0; }
@@ -177,9 +240,9 @@ html {
     margin-top: 7%;
     height: 90vh;
     width: 90vw;
-    background: hsl(0, 0%, 20%);
+    background: var(--n20);
     border-radius: var(--heavy-radius);
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+    box-shadow: -1vh 1vw 15px var(--n7), -2.4vh 2.5vw 10px var(--n15);
 
 }
 .design{
@@ -195,46 +258,46 @@ html {
 @keyframes designAnimation1{
     0%{ width: 70vw; height: 70vh; background: url(shoes1.png) center;}
     24% { transform: translate(0,0); width: 70vw; height: 70vh; background: url(shoes1.png) center;}
-    25% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%); }
-    49% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%); }
-    50% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: #32965b; }
-    74% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: #32965b;}
-    75% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
-    99% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    25% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: var(--n10); }
+    49% { transform: translate(0, 71vh); width: 70vw; height: 14vh; background: var(--n10); }
+    50% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: var(--accent-alt); }
+    74% { transform: translate(71vw, 71vh); width: 14vw; height: 14vh; background: var(--accent-alt);}
+    75% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: var(--n15);}
+    99% { transform: translate(71vw, 0); width: 14vw; height: 70vh; background: var(--n15);}
     100%{ width: 70vw; height: 70vh;}
 
 }
 @keyframes designAnimation2{
-    0%{ width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
-    24% { transform: translate(0,0); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    0%{ width: 14vw; height: 70vh; background: var(--n15);}
+    24% { transform: translate(0,0); width: 14vw; height: 70vh; background: var(--n15);}
     25%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
     49%{transform: translate(-15vw, 0); width: 70vw; height: 70vh; background: url(shoes2.png) center;}
-    50%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
-    74%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}   
-    75%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: #32965b;}
-    99%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: #32965b;}
+    50%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: var(--n10);}
+    74%{transform: translate(-15vw, 71vh); width: 70vw; height: 14vh; background: var(--n10);}   
+    75%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: var(--accent-alt);}
+    99%{transform: translate(0, 71vh); width: 14vw; height: 14vh; background: var(--accent-alt);}
     100%{ width: 14vw; height: 70vh;}
 }
 @keyframes designAnimation3{
-    0%{width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
-    24% { transform: translate(0,0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
-    25%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: #32965b;}
-    49%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: #32965b;}
-    50%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
-    74%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    0%{width: 70vw; height: 14vh; background: var(--n10);}
+    24% { transform: translate(0,0); width: 70vw; height: 14vh; background: var(--n10);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: var(--accent-alt);}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 14vh; background: var(--accent-alt);}
+    50%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: var(--n15);}
+    74%{ transform: translate(71vw, -15vh); width: 14vw; height: 70vh; background: var(--n15);}
     75%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
     99%{ transform: translate(0, -15vh); width: 70vw; height: 70vh; background: url(shoes3.png) center;}
     100%{width: 70vw; height: 14vh;}
 }
 @keyframes designAnimation4{
-    0%{ width: 14vw; height: 14vh; background: hsl(145, 100%, 35%);}
-    24% { transform: translate(0,0); width: 14vw; height: 14vh; background: hsl(145, 100%, 35%);}
-    25%{ transform: translate(0, -15vh);width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
-    49%{ transform: translate(0, -15vh); width: 14vw; height: 70vh; background: hsl(0, 0%, 15%);}
+    0%{ width: 14vw; height: 14vh; background: var(--accent);}
+    24% { transform: translate(0,0); width: 14vw; height: 14vh; background: var(--accent);}
+    25%{ transform: translate(0, -15vh);width: 14vw; height: 70vh; background: var(--n15);}
+    49%{ transform: translate(0, -15vh); width: 14vw; height: 70vh; background: var(--n15);}
     50%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
     74%{ transform: translate(-15vw, -15vh); width: 70vw; height: 70vh; background: url(shoes4.png) center;}
-    75%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
-    99%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: hsl(0, 0%, 10%);}
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: var(--n10);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 14vh; background: var(--n10);}
     100%{ width: 14vw; height: 14vh;}
 }
 #color-wrapper{
@@ -245,9 +308,12 @@ html {
     transition: background-color 0.3s ease;
 }
 #color-wrapper:hover{
-    background-color: rgba(211, 211, 211, 0.1);
+    background-color: hsl(from var(--n83) h s l / 0.1);
 }
 #about-us{
+    display: grid;
+    grid-template-columns: 30dvw 50dvw;
+    grid-template-rows: 50dvh 40dvh;
     padding: 0;
     position: relative;
     margin: 0% auto;
@@ -255,31 +321,31 @@ html {
     height: 85vh;
     width: 85vw;
     border-radius:var(--heavy-radius) ;
-    background-color: hsl(0, 0%, 15%);
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+    background-color: var(--n15);
+    box-shadow: -1vh 1vw 15px var(--n7), -2.4vh 2.5vw 10px var(--n15);
 
 }
 .heavy-text {
     font-family: 'Poppins', sans-serif;
     font-size: 3em;
-    background: linear-gradient(hsl(0, 0%, 70%) 0%, hsl(0, 0%, 100%) 50%, hsl(0, 0%, 70%));
+    background: linear-gradient(var(--n70) 0%, var(--n100) 50%, var(--n70));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: -0.25vh 0.25vw 15px hsl(0, 0%, 7%);
+    text-shadow: -0.25vh 0.25vw 15px var(--n7);
 }
 .light-text {
-     background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
+     background: linear-gradient(var(--n40) 0%, var(--n70) 50%, var(--n40));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: -0.1vh 0.1vw 15px hsl(0, 0%, 7%), -0.5vh 0.5vw 10px hsl(0, 0%, 15%);
+    text-shadow: -0.1vh 0.1vw 15px var(--n7), -0.5vh 0.5vw 10px var(--n15);
 }
 #about-box-1{
     font-size: min(2vw, 1.5em);
-    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
+    background: linear-gradient(var(--n50) 0%, var(--n80) 50%, var(--n50));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -305,11 +371,11 @@ html {
     width: 50vw;
     top: 0;
     right: 0;
-    background: radial-gradient(circle at bottom left, hsl(145, 100%, 35%) 0%, hsl(0, 0%, 10%) 95%);
-    border-radius: 40%;
+    background: radial-gradient(circle at bottom left, var(--accent) 0%, var(--n10) 95%);
+    border-radius: var(--light-radius);
     transition: background-color 1s; 
     animation: box 1s;
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+    box-shadow: -1vh 1vw 15px var(--n7), -2.4vh 2.5vw 10px var(--n15);
 
 }
 @keyframes box{
@@ -318,7 +384,7 @@ html {
 
 }
 #about-box-2-inner{
-    border-radius: 40%;
+    border-radius: var(--light-radius);
     background-position: center;
     background-size: cover;
     justify-content: center;
@@ -336,10 +402,10 @@ html {
 #about-box-2:hover #about-box-2-inner{
     height: 50vh;
     width: 50vw;
-    border-radius: 40%;
+    border-radius: var(--light-radius);
 }
 #about-box-2:hover{
-    background: hsl(145, 100%, 35%);
+    background: var(--accent);
 }
 #about-box-3{
     background-position: center;
@@ -349,15 +415,15 @@ html {
     width: 40vw;
     bottom: 0;
     left: 0;
-    background: radial-gradient(circle at top right, hsl(145, 100%, 35%) 0%, hsl(0, 0%, 10%) 95%);
-    border-radius: 30%;
+    background: radial-gradient(circle at top right, var(--accent) 0%, var(--n10) 95%);
+    border-radius: var(--light-radius);
     transition: background-color 1s;
     animation: box 1s;
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%);
+    box-shadow: -1vh 1vw 15px var(--n7);
 
 }
 #about-box-3-inner{
-    border-radius: 30%;
+    border-radius: var(--light-radius);
     background-position: center;
     background-size: cover;
     justify-content: center;
@@ -373,12 +439,12 @@ html {
     animation: box 1s;
 }
 #about-box-3:hover{
-    background: hsl(145, 100%, 35%);
+    background: var(--accent);
 }
 #about-box-3:hover #about-box-3-inner{
     height: 60vh;
     width: 40vw;
-    border-radius: 30%;
+    border-radius: var(--light-radius);
 }
 #about-box-4{
     font-size: 2.5vw;
@@ -396,34 +462,26 @@ html {
     justify-content: center;
     background-position: center;
     background-size: cover;
-    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
+    background: linear-gradient(var(--n50) 0%, var(--n80) 50%, var(--n50));
     background-clip: text;
 
 }
 #contact-wrapper{
     position: relative;
-    background-color: hsl(0, 0%, 10%);
     width: 85vw;
     height: 35vh;
     left: 7.5vw;
     border-radius: var(--heavy-radius);
-    box-shadow: -1vh 1vw 15px hsl(0, 0%, 7%), -2.4vh 2.5vw 10px hsl(0, 0%, 15%);
+    box-shadow: -1vh 1vw 15px var(--n7), -2.4vh 2.5vw 10px var(--n15);
 }
 #contact-us{
-    left: 5vw;
-    font-size: 1.5em;
+    left: 5dvw;
     padding: 0;
     position: relative;
     margin: 0% auto;
     margin-top: 7%;
     height: 35vh;
-    width: 85vw;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; /* fallback for browsers that don't support the above */
-    background: linear-gradient(hsl(0, 0%, 50%) 0%, hsl(0, 0%, 80%) 50%, hsl(0, 0%, 50%));
-    background-clip: text;
-    line-height: 1.4;
+    width: 80dvw;
 }
 @media (orientation: portrait) {
     /* bigger nav buttons */
@@ -446,32 +504,58 @@ html {
         height: 42.5dvh;
     }
     #about-box-1{
-        height: 15dvh;
+        height: 20dvh;
+        width: 40dvw;
+        top: 0.75dvh;
+        left: 0.75dvw;
     }
      #about-box-2{
-        height: 25dvh;
+        height: 20dvh;
+        width: 40dvw;
+        top: 0.75dvh;
+        right: 0.75dvw;
+        left: auto;
+        border-radius: var(--heavy-radius);
     }
      #about-box-2-inner{
         height: 20dvh;
+        border-radius: var(--heavy-radius);
     }
     #about-box-2:hover #about-box-2-inner{
-        height: 25dvh;
+        width: 40dvw;
+        height: 20dvh;
+        border-radius: var(--heavy-radius);
     }
      #about-box-3-inner{
-        height: 25dvh;
+        height: 20dvh;
+        width: 40dvw;
+        border-radius: var(--heavy-radius);
     }
     #about-box-3:hover #about-box-3-inner{
-        height: 30dvh;
+        height: 20dvh;
+        width: 40dvw;
+        border-radius: var(--heavy-radius);
     }
      #about-box-3{
-        height: 30dvh;
+        height: 20dvh;
+        width: 40dvw;
+        bottom: 0.75dvh;
+        right: 0.75dvw;
+        left: auto;
+        border-radius: var(--heavy-radius);
     }
      #about-box-4{
-        height: 15dvh;
+        height: 20dvh;
+        width: 40dvw;
+        bottom: 0.75dvh;
+        left: 0.75dvw;
+        right: auto;
     }
  
     #design{
-        height: 42.5dvh;
+        height: 47.5dvh;
+        width: 90dvw;
+        margin: 0;
     }
     #photo-wrapper{
         height: 41dvh;
@@ -482,46 +566,46 @@ html {
 @keyframes designAnimation1{
     0%{ width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
     24% { transform: translate(0,0); width: 70vw; height: 35vh; background: url(shoes1.png) center/cover no-repeat;}
-    25% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
-    49% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
-    50% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: #32965b; }
-    74% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: #32965b; }
-    75% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
-    99% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
+    25% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: var(--n10); }
+    49% { transform: translate(0, 35.5vh); width: 70vw; height: 7vh; background: var(--n10); }
+    50% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: var(--accent-alt); }
+    74% { transform: translate(71vw, 35.5vh); width: 14vw; height: 7vh; background: var(--accent-alt); }
+    75% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: var(--n15); }
+    99% { transform: translate(71vw, 0); width: 14vw; height: 35vh; background: var(--n15); }
     100%{ width: 70vw; height: 35vh; background: url(shoes1.png) center; }
 }
 @keyframes designAnimation2{
-    0%{ width: 14vw; height: 35vh; background: hsl(0, 0%, 15%);}
-    24% { transform: translate(0,0); width: 14vw; height: 35vh; background: hsl(0, 0%, 15%);}
+    0%{ width: 14vw; height: 35vh; background: var(--n15);}
+    24% { transform: translate(0,0); width: 14vw; height: 35vh; background: var(--n15);}
     25%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
     49%{transform: translate(-15vw, 0); width: 70vw; height: 35vh; background: url(shoes2.png) center/cover no-repeat;}
-    50%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    74%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    75%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: #32965b;}
-    99%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: #32965b;}
-    100%{ width: 14vw; height: 35vh; background: hsl(0, 0%, 15%); }
+    50%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: var(--n10);}
+    74%{transform: translate(-15vw, 35.5vh); width: 70vw; height: 7vh; background: var(--n10);}
+    75%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: var(--accent-alt);}
+    99%{transform: translate(0, 35.5vh); width: 14vw; height: 7vh; background: var(--accent-alt);}
+    100%{ width: 14vw; height: 35vh; background: var(--n15); }
 }
 @keyframes designAnimation3{
-    0%{width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    24% { transform: translate(0,0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    25%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: #32965b;}
-    49%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: #32965b;}
-    50%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    74%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{width: 70vw; height: 7vh; background: var(--n10);}
+    24% { transform: translate(0,0); width: 70vw; height: 7vh; background: var(--n10);}
+    25%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: var(--accent-alt);}
+    49%{ transform: translate(71vw, 0); width: 14vw; height: 7vh; background: var(--accent-alt);}
+    50%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, var(--accent-alt) 40%, var(--n83) 100%);}
+    74%{ transform: translate(71vw, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, var(--accent-alt) 40%, var(--n83) 100%);}
     75%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
     99%{ transform: translate(0, -7.5vh); width: 70vw; height: 35vh; background: url(shoes3.png) center/cover no-repeat;}
-    100%{width: 70vw; height: 7vh; background: hsl(0, 0%, 10%); }
+    100%{width: 70vw; height: 7vh; background: var(--n10); }
 }
 @keyframes designAnimation4{
-    0%{ width: 14vw; height: 7vh; background: #32965b;}
-    24% { transform: translate(0,0); width: 14vw; height: 7vh; background: #32965b;}
-    25%{ transform: translate(0, -7.5vh);width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
-    49%{ transform: translate(0, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, #32965b 40%, lightgray 100%);}
+    0%{ width: 14vw; height: 7vh; background: var(--accent-alt);}
+    24% { transform: translate(0,0); width: 14vw; height: 7vh; background: var(--accent-alt);}
+    25%{ transform: translate(0, -7.5vh);width: 14vw; height: 35vh; background: linear-gradient(to bottom, var(--accent-alt) 40%, var(--n83) 100%);}
+    49%{ transform: translate(0, -7.5vh); width: 14vw; height: 35vh; background: linear-gradient(to bottom, var(--accent-alt) 40%, var(--n83) 100%);}
     50%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
     74%{ transform: translate(-15vw, -7.5vh); width: 70vw; height: 35vh; background: url(shoes4.png) center/cover no-repeat;}
-    75%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    99%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: hsl(0, 0%, 10%);}
-    100%{ width: 14vw; height: 7vh; background: #32965b; }
+    75%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: var(--n10);}
+    99%{ transform: translate(-15vw, 0); width: 70vw; height: 7vh; background: var(--n10);}
+    100%{ width: 14vw; height: 7vh; background: var(--accent-alt); }
 }
     #nav-bar { display: none; }
     #menu-btn { display: block; position: fixed; }
